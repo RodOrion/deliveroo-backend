@@ -2,7 +2,10 @@ const PORT = 3000;
 const express = require("express");
 const app = express();
 app.use(express.json());
-const axios = require("axios")
+
+require("dotenv").config();
+
+const axios = require("axios");
 
 const cors = require("cors");
 app.use(cors());
@@ -442,10 +445,10 @@ app.get("/api_deliveroo", async (req, res) => {
       }
     );
     // return rseponse datas
-    return res.json({res:response.data, tok:bearerToken});
+    return res.json(response.data);
   } catch (error) {
     return res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
