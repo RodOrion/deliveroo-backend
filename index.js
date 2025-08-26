@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/restos", (req, res) => {
-  return res.json({
+  return res.status(200).json({
     restaurant: {
       path: "Le Pain Quotidien",
       name: "Le Pain Quotidien - Montorgueil",
@@ -445,7 +445,7 @@ app.get("/api_deliveroo", async (req, res) => {
       }
     );
     // return rseponse datas
-    return res.json(response.data);
+    return res.status(200).json(response.data);
   } catch (error) {
     return res.status(500).json({
       error: error.message,
